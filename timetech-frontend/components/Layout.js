@@ -1,12 +1,17 @@
-import Navbar from "./Navbar";
+import { useRouter } from "next/router";
+import DashboardNav from "./DashboardNav";
 
 export default function Layout({ children }) {
+  const router = useRouter();
+
+  const isOnboarding =
+    router.pathname.startsWith("/onboarding") ||
+    router.pathname.startsWith("/auth");
+
   return (
-    <div className="app-shell">
-      <Navbar />
-      <main className="app-main">
-        <div className="page-container">{children}</div>
-      </main>
-    </div>
+    <>
+      {!isOnboarding && <DashboardNav />}
+      <main>{children}</main>
+    </>
   );
 }
