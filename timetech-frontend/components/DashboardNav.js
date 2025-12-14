@@ -5,7 +5,6 @@ export default function DashboardNav() {
   const router = useRouter();
 
   function signOut() {
-    // later replace with real auth logout
     router.push("/auth/login");
   }
 
@@ -15,8 +14,11 @@ export default function DashboardNav() {
       <Link href="/dashboard/jobs">Jobs</Link>
       <Link href="/dashboard/plans">Plans</Link>
       <Link href="/dashboard/wallet">Wallet</Link>
-      <Link href="/dashboard/referrals">Referrals>
-      <button onClick={signOut} style={styles.logout}>Sign out</button>
+      <Link href="/dashboard/referrals">Referrals</Link>
+
+      <button onClick={signOut} style={styles.logout}>
+        Sign out
+      </button>
     </nav>
   );
 }
