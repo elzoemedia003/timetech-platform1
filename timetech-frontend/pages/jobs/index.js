@@ -1,89 +1,44 @@
 import { useEffect, useState } from "react";
-import JobCard from "../../components/JobCard";
-import { fetchJobs } from "../../lib/api";
 
-export default function JobsPage() {
+export default function Jobs() {
   const [jobs, setJobs] = useState([]);
-  const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("all");
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-
-  async function loadJobs() {
-    try {
-      setLoading(true);
-      setError("");
-      const data = await fetchJobs({
-        search: search || undefined,
-        category
-      });
-      setJobs(data.jobs || []);
-    } catch (err) {
-      console.error(err);
-      setError("Unable to load jobs. Check your backend URL.");
-    } finally {
-      setLoading(false);
-    }
-  }
 
   useEffect(() => {
-    loadJobs();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    async function fetchJobs() {
+      try {
+        // TEMP placeholder – backend URL comes later
+        // const res = await fetch(process.env.NEXT_PUBLIC_API_URL + "/jobs");
+        // const data = await res.json();
+        // setJobs(data);
+
+        setJobs([]); // keeps UI working for now
+      } catch (err) {
+        console.error("Failed to fetch jobs", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchJobs();
   }, []);
 
   return (
-    <div>
-      <h2 style={{ marginTop: 10, marginBottom: 4 }}>Web3 & Remote Jobs</h2>
-      <p style={{ marginTop: 0, fontSize: 13, color: "#9ca3af" }}>
-        These roles are fetched from RemoteOK, Web3.career and CryptoJobsList,
-        then unified by your backend.
-      </p>
+    <div style={{ padding: 20 }}>
+      <h1>Jobs</h1>
 
-      <div
-        className="card"
-        style={{
-          marginTop: 16,
-          display: "flex",
-          flexWrap: "wrap",
-          gap: 10,
-          alignItems: "center"
-        }}
-      >
-        <input
-          placeholder="Search by title or company (e.g. Solidity, Rust, DeFi)"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          style={{ flex: 1, minWidth: 220 }}
-        />
-        <select
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          style={{ maxWidth: 160 }}
-        >
-          <option value="all">All categories</option>
-          <option value="engineering">Engineering</option>
-          <option value="growth">Growth</option>
-          <option value="research">Research</option>
-          <option value="design">Design</option>
-        </select>
-        <button className="btn-primary" onClick={loadJobs}>
-          Refresh
-        </button>
-      </div>
+      {loading && <p>Loading jobs...</p>}
 
-      {error && (
-        <p style={{ marginTop: 12, fontSize: 12, color: "#f97373" }}>{error}</p>
+      {!loading && jobs.length === 0 && (
+        <p>Free-tier Web3 & remote jobs available here.</p>
       )}
 
-      <div style={{ marginTop: 18, display: "flex", flexDirection: "column", gap: 12 }}>
-        {loading ? (
-          <p style={{ fontSize: 13, color: "#9ca3af" }}>Loading jobs…</p>
-        ) : jobs.length === 0 ? (
-          <p style={{ fontSize: 13, color: "#9ca3af" }}>No jobs found.</p>
-        ) : (
-          jobs.map((job) => <JobCard key={job.id} job={job} />)
-        )}
-      </div>
+      {jobs.map((job) => (
+        <div key={job.id} style={{ marginBottom: 12 }}>
+          <strong>{job.title}</strong>
+          <p>{job.company}</p>
+        </div>
+      ))}
     </div>
   );
 }
