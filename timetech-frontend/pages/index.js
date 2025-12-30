@@ -6,48 +6,37 @@ export default function Home() {
       <section style={styles.hero}>
         <h1 style={styles.title}>TimeTech</h1>
 
-        <section style={styles.about}>
-          <p style={styles.text}>
-            <strong>TimeTech is a Web3-powered business and career hub</strong>{" "}
-            designed to connect talent, businesses, and capital in one practical
-            system.
-          </p>
+        <p style={styles.text}>
+          <strong>TimeTech is a Web3-powered business and career hub</strong>{" "}
+          built to connect talent, businesses, and capital in one practical
+          ecosystem.
+        </p>
 
-          <p style={styles.text}>
-            It bridges fiat payments with crypto-native infrastructure, letting
-            users discover jobs, complete tasks, earn rewards, and access
-            opportunities using familiar tools—while benefiting from blockchain
-            speed and transparency in the background.
-          </p>
+        <p style={styles.text}>
+          We bridge traditional fiat payments with crypto-native infrastructure,
+          enabling users to discover opportunities, earn rewards, and scale
+          across both worlds—without friction.
+        </p>
 
-          <p style={styles.text}>
-            Professionals access verified roles, dashboards, and progression
-            tiers. Businesses hire talent, advertise services, and gain
-            visibility to partners and investors. Subscriptions unlock higher
-            tiers, while free users still participate through points.
-          </p>
-
-          <p style={styles.text}>
-            TimeTech is built for real-world adoption—using Web3 as
-            infrastructure, not hype.
-          </p>
-        </section>
+        <p style={styles.text}>
+          Jobs, wallets, dashboards, and earnings unlock after account creation.
+          Subscriptions enable earning, while free users can explore the platform
+          safely.
+        </p>
 
         <div style={styles.actions}>
-          <Link href="/jobs">
-            <button style={styles.primary}>Browse Jobs</button>
+          <Link href="/signup">
+            <button style={styles.primary}>Create Account</button>
           </Link>
 
-          <Link href="/blog">
-            <button style={styles.secondary}>Read Insights</button>
-          </Link>
-
-          <Link href="/explore">
-            <button style={styles.secondary}>Explore Platform</button>
+          <Link href="/login">
+            <button style={styles.secondary}>Sign In</button>
           </Link>
         </div>
 
-        <p style={styles.note}>No sign-up required. Free tier access available.</p>
+        <p style={styles.note}>
+          No public access. Features unlock after login.
+        </p>
       </section>
     </main>
   );
@@ -62,41 +51,33 @@ const styles = {
     padding: "24px",
   },
   hero: {
-    width: "100%",
-    maxWidth: "900px",
+    maxWidth: "720px",
+    textAlign: "center",
     display: "flex",
     flexDirection: "column",
     gap: "18px",
   },
   title: {
-    fontSize: "40px",
+    fontSize: "42px",
     fontWeight: "800",
     letterSpacing: "-1px",
-    margin: 0,
-  },
-  about: {
-    lineHeight: "1.7",
-    display: "flex",
-    flexDirection: "column",
-    gap: "12px",
   },
   text: {
     fontSize: "16px",
     lineHeight: "1.6",
-    opacity: 0.92,
-    margin: 0,
+    opacity: 0.9,
   },
   actions: {
     display: "flex",
     flexDirection: "column",
     gap: "12px",
-    marginTop: "10px",
+    marginTop: "12px",
   },
   primary: {
     padding: "14px",
     borderRadius: "10px",
     border: "none",
-    fontWeight: "600",
+    fontWeight: "700",
     background: "#22d3ee",
     cursor: "pointer",
   },
@@ -111,15 +92,5 @@ const styles = {
     fontSize: "13px",
     opacity: 0.7,
     marginTop: "6px",
-    marginBottom: 0,
   },
 };
-<div style={{ display: "flex", gap: "12px", marginTop: "18px" }}>
-  <Link href="/auth/login">
-    <button style={styles.secondary}>Sign In</button>
-  </Link>
-
-  <Link href="/auth/register">
-    <button style={styles.primary}>Create Account</button>
-  </Link>
-</div>
