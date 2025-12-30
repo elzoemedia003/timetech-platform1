@@ -2,22 +2,47 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main style={styles.container}>
-      <section style={styles.hero}>
-        <h1 style={styles.title}>TimeTech</h1>
+    <main style={{ padding: "24px", maxWidth: "900px", margin: "0 auto" }}>
+      
+      <h1 style={{ fontSize: "36px", fontWeight: "800" }}>TimeTech</h1>
 
-        <p style={styles.text}>
-          I’m Daniel, a full-stack developer building at the intersection of
-          modern web platforms and Web3 infrastructure. Through TimeTech, I’m
-          creating a system that bridges fiat and crypto using intuitive design,
-          scalable APIs, and secure third-party integrations.
+      <section style={{ marginTop: "20px", lineHeight: "1.7" }}>
+        <p>
+          <strong>TimeTech is a Web3-powered business and career hub</strong>
+          designed to connect talent, businesses, and capital in one practical
+          system.
         </p>
 
-        <p style={styles.text}>
-          TimeTech is designed to feel familiar to everyday users while enabling
-          access to Web3 opportunities—starting free, with optional upgrades as
-          users grow.
+        <p>
+          It bridges traditional fiat payments with crypto-native infrastructure,
+          allowing users to discover jobs, complete tasks, earn rewards, and
+          access opportunities using familiar tools—while benefiting from
+          blockchain speed and transparency in the background.
         </p>
+
+        <p>
+          Professionals access verified roles, dashboards, and progression tiers.
+          Businesses hire talent, advertise services, and gain visibility to
+          partners and investors. Subscriptions unlock higher tiers, while free
+          users remain active through point-based participation.
+        </p>
+
+        <p>
+          TimeTech is built for real-world adoption—using Web3 as infrastructure,
+          not hype.
+        </p>
+      </section>
+
+      <section style={{ marginTop: "28px", display: "flex", flexDirection: "column", gap: "12px" }}>
+        <Link href="/jobs"><button>Browse Jobs</button></Link>
+        <Link href="/blog"><button>Read Insights</button></Link>
+        <Link href="/explore"><button>Explore Platform</button></Link>
+      </section>
+
+    </main>
+  );
+}
+
 
         <div style={styles.actions}>
           <Link href="/jobs">
