@@ -114,3 +114,12 @@ const styles = {
     marginBottom: 0,
   },
 };
+<div style={{ display: "flex", gap: "12px", marginTop: "18px" }}>
+  <Link href="/auth/login">
+    <button style={styles.secondary}>Sign In</button>
+  </Link>
+
+  <Link href="/auth/register">
+    <button style={styles.primary}>Create Account</button>
+  </Link>
+</div>
