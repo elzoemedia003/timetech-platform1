@@ -24,6 +24,7 @@ export default function Navbar() {
           paddingBlock: "0.9rem"
         }}
       >
+        {/* Logo */}
         <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
           <div
             style={{
@@ -48,9 +49,11 @@ export default function Navbar() {
               T
             </span>
           </div>
+
           <span style={{ fontWeight: 600, letterSpacing: 0.5 }}>
             TimeTech<span style={{ color: "#22d3ee" }}>.jobs</span>
           </span>
+
           <span
             className="badge-soft"
             style={{ marginLeft: 6, fontSize: 10, textTransform: "uppercase" }}
@@ -59,6 +62,7 @@ export default function Navbar() {
           </span>
         </div>
 
+        {/* Navigation */}
         <nav
           style={{
             display: "flex",
@@ -71,45 +75,18 @@ export default function Navbar() {
             <span
               style={{
                 color: isActive("/") ? "#e5e7eb" : "#9ca3af",
-                fontWeight: isActive("/") ? 600 : 400
+                fontWeight: isActive("/") ? 600 : 400,
+                cursor: "pointer"
               }}
             >
               Home
             </span>
           </Link>
-          <Link href="/jobs">
-            <span
-              style={{
-                color: isActive("/jobs") ? "#e5e7eb" : "#9ca3af",
-                fontWeight: isActive("/jobs") ? 600 : 400
-              }}
-            >
-              Jobs
-            </span>
-          </Link>
-          <Link href="/dashboard">
-            <span
-              style={{
-                color: isActive("/dashboard") ? "#e5e7eb" : "#9ca3af",
-                fontWeight: isActive("/dashboard") ? 600 : 400
-              }}
-            >
-              Dashboard
-            </span>
-          </Link>
-          <Link href="/subscriptions">
-            <span
-              style={{
-                color: isActive("/subscriptions") ? "#e5e7eb" : "#9ca3af",
-                fontWeight: isActive("/subscriptions") ? 600 : 400
-              }}
-            >
-              Plans
-            </span>
-          </Link>
+
           <Link href="/auth/login">
             <button className="btn-outline">Sign in</button>
           </Link>
+
           <Link href="/auth/register">
             <button className="btn-primary">Get Started</button>
           </Link>
