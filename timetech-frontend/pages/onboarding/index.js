@@ -1,12 +1,25 @@
-import { useEffect } from "react";
-import { useRouter } from "next/router";
+import Link from "next/link";
 
-export default function OnboardingDisabled() {
-  const router = useRouter();
+export default function Home() {
+  return (
+    <main style={styles.container}>
+      <section style={styles.hero}>
+        <h1 style={styles.title}>TimeTech</h1>
 
-  useEffect(() => {
-    router.replace("/dashboard");
-  }, [router]);
+        <p style={styles.text}>
+          A Web3-powered business and career hub bridging fiat and crypto.
+        </p>
 
-  return null;
-}
+        <p style={styles.text}>
+          Access jobs, wallets, dashboards, and earning tools through structured
+          subscription tiers designed for real adoption.
+        </p>
+
+        <div style={styles.actions}>
+          <Link href="/subscriptions">
+            <button style={styles.primary}>View Subscription Packages</button>
+          </Link>
+
+          <p style={styles.note}>
+            Choose a plan to continue. Account setup follows plan selection.
+          </p
